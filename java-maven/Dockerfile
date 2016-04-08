@@ -11,7 +11,7 @@ ENV JRE_HOME ${JAVA_HOME}/jre
 ENV MAVEN_HOME /usr/share/maven
 
 RUN apt-get update \
-  && apt-get -y --no-install-recommends install ca-certificates curl gcc libc6-dev libssl-dev make
+  && apt-get -y --no-install-recommends install ca-certificates curl gcc libc6-dev libssl-dev make git
 
 RUN mkdir -p /usr/lib/jvm
 RUN curl --silent --location --retry 3 --cacert /etc/ssl/certs/GeoTrust_Global_CA.pem --header "Cookie: oraclelicense=accept-securebackup-cookie;" http://download.oracle.com/otn-pub/java/jdk/"${JAVA_VERSION}"u"${JAVA_UPDATE}"-b"${JAVA_BUILD}"/server-jre-"${JAVA_VERSION}"u"${JAVA_UPDATE}"-linux-x64.tar.gz | tar xz -C /tmp
